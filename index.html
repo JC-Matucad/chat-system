@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat system</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC3r0vM6FiuoDKmZiNWUyRS51s-Wh9hrxg",
+    authDomain: "chat-system-eb832.firebaseapp.com",
+    databaseURL: "https://chat-system-eb832-default-rtdb.firebaseio.com",
+    projectId: "chat-system-eb832",
+    storageBucket: "chat-system-eb832.appspot.com",
+    messagingSenderId: "60953426173",
+    appId: "1:60953426173:web:afa4abfdd01baeea622694",
+    measurementId: "G-G0ZMSL8QCH"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+
+  function sendmessage() {
+    var message = document.getElementById("message").value;
+
+    firebase.database().ref("message").push().set({
+        "message": message
+    });
+
+    document.getElementById("displaysend").innerHTML = message;
+    document.getElementById("message").value = "";
+
+    return false;
+  }
+
+  firebase.database().ref("message").on("child_added", function (snapshot) {
+    var html = snapshot.val().message
+
+    document.getElementById("display").innerHTML += html;
+})
+
+</script>
+
+
+
+
+
+    <div class="contaner">
+        <div class="navbar">
+            <div class="nav1">
+                <button class="backbtn">back</button>
+            </div>
+            <div class="nav2">
+                <h1>chat system</h1>
+            </div>
+            <div class="nav3">
+                
+            </div>
+        </div>
+
+        <div class="contentarea">
+            <div class="conversation">
+                <div>
+                    <ul id="display"></ul>
+                </div>
+            </div>
+
+            <div class="inputarea">
+                <div class="ia1">
+
+                </div>
+
+                <div class="ia2">
+                    <input id="message" type="text" class="textinput">
+                </div>
+
+                <div class="ia3">
+                    <button onclick="sendmessage()"class="sendbtn">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
