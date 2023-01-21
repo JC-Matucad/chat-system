@@ -74,9 +74,12 @@ body {
 .conversation{
     height: 90%;
     width: 100%;
+    padding: 50px;
 }
 
 .inputarea{
+    position: fixed;
+    bottom: 0;
     height: 10%;
     width: 100%;
     display: flex;
@@ -130,7 +133,12 @@ body {
     background-color: white;
 }
 
-.baloon{
+.bubble{
+    height: 30px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: skyblue;
-    color: white;
+    color: black;
 }

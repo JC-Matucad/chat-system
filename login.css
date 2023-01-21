@@ -1,0 +1,42 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    background-color: skyblue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container input{
+    margin: 5px;
+    height: 25px;
+    width: 200px;
+    border: solid 1px white;
+    border-radius: 20px;
+}
+
+.container button{
+    margin: 5px;
+    height: 25px;
+    width: 200px;
+    border: solid 1px white;
+    border-radius: 20px;
+    background-color: white;
+    color: skyblue;
+}
+
+.container button:hover{
+    border: solid 1px white;
+    background-color: skyblue;
+    color: white;
+    cursor: pointer;
+}

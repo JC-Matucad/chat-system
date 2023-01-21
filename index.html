@@ -41,7 +41,7 @@
   }
 
   firebase.database().ref("message").on("child_added", function (snapshot) {
-    var html = snapshot.val().message
+    var html = "<li>" + snapshot.val().message + "</li>"
 
     document.getElementById("display").innerHTML += html;
 })
@@ -67,7 +67,7 @@
 
         <div class="contentarea">
             <div class="conversation">
-                <div>
+                <div class="bubble">
                     <ul id="display"></ul>
                 </div>
             </div>
